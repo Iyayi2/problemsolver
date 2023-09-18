@@ -1,0 +1,15 @@
+<ul>
+  <% @tickets.each do |ticket| %>
+    <% if ticket.user == current_user %>
+      <li>Category: <%= ticket.category %></li>
+      <li>Description: <%= ticket.description %></li>
+      <li>Ticket was assigned to <%= ticket.reviewer %></li>
+    <% else %>
+      <li>Category: <%= ticket.category %></li>
+      <li>Description: <%= ticket.description %></li>
+      <li>Ticket was created by <%= ticket.user.first_name %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "Create ticket", new_ticket_path, class: "btn btn-outline-primary" %>
