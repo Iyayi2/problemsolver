@@ -1,5 +1,7 @@
 class Reviewer < ApplicationRecord
   belongs_to :user
-  belongs_to :ticket
+  has_many :tickets, dependent: :destroy
   has_many :responses
+
+  validates :first_name, presence: true
 end

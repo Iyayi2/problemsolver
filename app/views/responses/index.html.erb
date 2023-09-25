@@ -1,0 +1,10 @@
+<h1>Responses</h1>
+
+<% @responses.each do |response| %>
+  <div class="response-container">
+    <%= response.ticket.description %>
+    <%= response.content %>
+    <%= response.user.first_name %>
+    <%= response.reviewer.user.first_name %>
+  </div>
+<% end %>

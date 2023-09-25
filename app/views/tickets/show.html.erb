@@ -1,0 +1,10 @@
+<div class="show-container">
+  <%= @ticket.description %>
+  <%= render "responses/show", response: @response %>
+
+  <% if @ticket.user == current_user %>
+    <%= link_to "Delete ticket", ticket_path(@ticket),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <% end %>
+
+</div>

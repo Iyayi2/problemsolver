@@ -1,0 +1,5 @@
+<% if @ticket.response %>
+  <%= @ticket.response.content%> ticket opened by <%= @ticket.user.first_name %>
+<% elsif @ticket.reviewer.user == current_user  %>
+  <%= link_to "Give response", new_ticket_response_path(@ticket) %>
+<% end %>

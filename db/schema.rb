@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_18_105200) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_22_132753) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,8 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_18_105200) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
-    t.bigint "ticket_id"
-    t.index ["ticket_id"], name: "index_reviewers_on_ticket_id"
+    t.string "first_name"
     t.index ["user_id"], name: "index_reviewers_on_user_id"
   end
 
@@ -41,6 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_18_105200) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.bigint "reviewer_id", null: false
+    t.index ["reviewer_id"], name: "index_tickets_on_reviewer_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
@@ -60,7 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_18_105200) do
   add_foreign_key "responses", "reviewers"
   add_foreign_key "responses", "tickets"
   add_foreign_key "responses", "users"
-  add_foreign_key "reviewers", "tickets"
   add_foreign_key "reviewers", "users"
+  add_foreign_key "tickets", "reviewers"
   add_foreign_key "tickets", "users"
 end
