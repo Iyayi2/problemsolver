@@ -1,15 +1,18 @@
-<ul>
-  <% @tickets.each do |ticket| %>
-    <% if ticket.user == current_user %>
-      <li>Category: <%= ticket.category %></li>
-      <li>Description: <%= ticket.description %></li>
-      <li>Ticket was assigned to <%= ticket.reviewer %></li>
-    <% else %>
-      <li>Category: <%= ticket.category %></li>
-      <li>Description: <%= ticket.description %></li>
-      <li>Ticket was created by <%= ticket.user.first_name %></li>
+<div class="ticket-container">
+  Hello, <%= current_user.first_name %>
+  <ul>
+    <% @tickets.each do |ticket| %>
+      <% if ticket.user == current_user %>
+        <li>Your ticket has been assigned to <%= ticket.reviewer.first_name %></li>
+        <li>Category: <%= ticket.category %></li>
+        <%= link_to "Details", ticket_path(ticket) %>
+      <% else%>
+        <li>Ticket was created by <%= ticket.user.first_name %></li>
+        <li>Category: <%= ticket.category %></li>
+        <%= link_to "Details", ticket_path(ticket) %>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
 
-<%= link_to "Create ticket", new_ticket_path, class: "btn btn-outline-primary" %>
+  <%= link_to "Create ticket", new_ticket_path, class: "btn btn-outline-primary" %>
+</div>

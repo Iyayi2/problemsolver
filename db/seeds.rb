@@ -1,7 +1,6 @@
 puts "Deleting previous records"
 
 User.destroy_all
-Ticket.destroy_all
 Reviewer.destroy_all
 
 puts "Creating users"
@@ -19,14 +18,9 @@ user10 = User.create(first_name: "Ikechukwu", email: "ikechukwu@gmail.com", pass
 
 puts "Done!! 😋"
 
-puts "Creating tickets"
-
-ticket1 = Ticket.create(category: "Ruby", description: "I am having problems with associating my models. Please help!!!", user_id: user1.id)
-ticket2 = Ticket.create(category: "CSS", description: "Could someone please help me with centering my divs!!", user_id: user4.id)
-
 puts "Creating reviewers"
 
-reviewer1 = Reviewer.create(user_id: user3.id, ticket_id: ticket1.id)
-reviewer2 = Reviewer.create(user_id: user5.id, ticket_id: ticket2.id)
+reviewer1 = Reviewer.create(user_id: user3.id, first_name: user3.first_name)
+reviewer2 = Reviewer.create(user_id: user5.id, first_name: user5.first_name)
 
 puts "Done and dusted💪🏽"

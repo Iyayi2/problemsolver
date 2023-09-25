@@ -7,6 +7,9 @@ class TicketsController < ApplicationController
 
   def show
     @ticket = Ticket.find(params[:id])
+    # if @ticket.responses?
+    # end
+    @response = Response.where(ticket_id: @ticket).pluck(:id)
   end
 
   def new
@@ -21,9 +24,14 @@ class TicketsController < ApplicationController
     if @ticket.save!
       redirect_to root_path
     else
-      raise
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @ticket = Ticket.find(params[:id])
+    @ticket.destroy
+    redirect_to root_path, status: :see_other
   end
 
   private
