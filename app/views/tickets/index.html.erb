@@ -1,18 +1,33 @@
+<div class="user-white d-flex justify-content-center mt-5 mb-auto">
+  <h1>Hello, <%= current_user.first_name %>!</h1>
+</div>
 <div class="ticket-container">
-  Hello, <%= current_user.first_name %>
+  <div class="ticket-header d-flex justify-content-center my-4">
+    <h1>Tickets</h1>
+  </div>
   <ul>
     <% @tickets.each do |ticket| %>
-      <% if ticket.user == current_user %>
-        <li>Your ticket has been assigned to <%= ticket.reviewer.first_name %></li>
-        <li>Category: <%= ticket.category %></li>
-        <%= link_to "Details", ticket_path(ticket) %>
-      <% else%>
-        <li>Ticket was created by <%= ticket.user.first_name %></li>
-        <li>Category: <%= ticket.category %></li>
-        <%= link_to "Details", ticket_path(ticket) %>
-      <% end %>
+      <div class="card-ticket my-2">
+        <% if ticket.user == current_user %>
+          <li>Your ticket has been assigned to <%= ticket.reviewer.first_name %></li>
+          <li>Category: <%= ticket.category %></li>
+          <li>Ticket opened: <%= ticket.created_at.strftime("%m/%d/%Y %I:%M %p") %></li>
+          <div class="details-white d-flex justify-content-center mt-1">
+            <%= link_to "Details", ticket_path(ticket), class: "text-decoration-none btn btn-dark" %>
+          </div>
+        <% else%>
+          <li>Ticket was created by <%= ticket.user.first_name %></li>
+          <li>Category: <%= ticket.category %></li>
+          <li>Ticket opened: <%= ticket.created_at.strftime("%m/%d/%Y %I:%M %p") %></li>
+          <div class="details-white d-flex justify-content-center mt-1">
+            <%= link_to "Details", ticket_path(ticket), class: "text-decoration-none btn btn-dark" %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </ul>
 
-  <%= link_to "Create ticket", new_ticket_path, class: "btn btn-outline-primary" %>
+  <div class="ticket-btn d-flex justify-content-center">
+   <%= link_to "Create ticket", new_ticket_path, class: "btn btn-secondary" %>
+  </div>
 </div>

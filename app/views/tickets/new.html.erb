@@ -1,14 +1,27 @@
-<div class="d-flex justify-content-center mt-5">
-  <h1>Create a ticket</h1>
+<div class="user-show-white d-flex justify-content-center mt-5 mb-auto">
+  <h1>Hello again <%= current_user.first_name %>!</h1>
 </div>
-<%= simple_form_for(@ticket) do |f| %>
-  <div class="form-group row justify-content-center">
-    <div class="col-4">
-      <%= f.label :category %>
-      <%= f.select :category,
-          category = ["Ruby", "Javascript", "CSS"] %>
-      <%= f.input :description %>
-      <%= f.submit class: "btn btn-outline-primary"%>
-    </div>
+
+<div class="ticket-new">
+  <div class="new-header d-flex justify-content-center my-4">
+    <h1>Create a ticket</h1>
   </div>
-<% end %>
+
+  <%= simple_form_for(@ticket) do |f| %>
+    <div class="form-group row justify-content-center">
+      <div class="col-4">
+        <div class="new-category">
+          <%= f.label :category %>
+          <%= f.select :category,
+              category = ["Ruby", "Javascript", "CSS"] %>
+        </div>
+        <div class="new-description">
+          <%= f.input :description, placeholder: "describe the issue..", input_html: { class: 'input-white' }%>
+        </div>
+        <div class="d-flex justify-content-center">
+          <%= f.submit class: "btn btn-secondary"%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

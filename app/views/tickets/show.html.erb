@@ -1,10 +1,16 @@
-<div class="show-container">
-  <%= @ticket.description %>
-  <%= render "responses/show", response: @response %>
-
-  <% if @ticket.user == current_user %>
-    <%= link_to "Delete ticket", ticket_path(@ticket),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <% end %>
-
+<div class="user-show-white d-flex justify-content-center mt-5 mb-auto">
+  <h1>Hello again <%= current_user.first_name %>!</h1>
 </div>
+
+<ul>
+  <div class="show-container">
+    <li><%= @ticket.description %></li>
+    <li><%= render "responses/show", response: @response %></li>
+  <div class="d-flex justify-content-center mt-1">
+    <% if @ticket.user == current_user %>
+      <%= link_to "Delete ticket", ticket_path(@ticket),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-decoration-none btn btn-secondary" %>
+    <% end %>
+</div>
+  </div>
+</ul>
