@@ -1,0 +1,11 @@
+  <%= simple_form_for [@ticket, Response.new] do |f| %>
+    <div class="form-group justify-content-center">
+      <div class="new-content">
+        <%= f.label :content %>
+        <%= f.rich_text_area :content, placeholder: "type response..." %>
+      </div>
+      <div class="d-flex justify-content-center">
+        <%= f.submit class: "btn btn-secondary mt-2"%>
+      </div>
+    </div>
+  <% end %>

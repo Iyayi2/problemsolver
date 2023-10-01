@@ -1,4 +1,4 @@
-.ticket-new {
+.session-new {
   justify-content: center;
   border: 2px groove;
   border-radius: 10px;
@@ -8,21 +8,30 @@
   font-weight: bold;
 }
 
-.new-header {
+.session-header {
   color: white;
   font-weight: bold;
 }
 
-.new-category {
+.login-email {
   color: white;
   font-weight: bold;
 }
 
-.new-description {
+.login-password {
   color: white;
   font-weight: bold;
 }
 
-// .input-white {
-//   background-color: white;
-// }
+.login-remember {
+  color: white;
+  font-weight: bold;
+}
+
+.session-img {
+  width: 120px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

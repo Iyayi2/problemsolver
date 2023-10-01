@@ -1,7 +1,15 @@
 <% if @ticket.response %>
-  <%= @ticket.response.content%>ticket was responded to on: <%= @ticket.response.created_at.strftime("%m/%d/%Y %I:%M %p") %>
+  <ul>
+    <div class="response-show-container">
+      <li><%= @ticket.response.content%></li>
+      <li>Ticket was closed <%= time_ago_in_words(@ticket.response.created_at) %> ago by <%= @ticket.reviewer.first_name %></li>
+    </div>
+  </ul>
 <% elsif @ticket.reviewer.user == current_user  %>
-  <div class="d-flex justify-content-center mt-1">
-   <%= link_to "Give response", new_ticket_response_path(@ticket), class: "text-decoration-none btn btn-secondary" %>
+  <div data-controller="toggle" class="d-block justify-content-center mt-1">
+    <button data-action="click->toggle#fire" class="text-decoration-none btn btn-secondary">Give response</button>
+    <div data-toggle-target="togglableForm" class="d-none">
+      <%= render "responses/new", response: @response %>
+    </div>
   </div>
 <% end %>

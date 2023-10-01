@@ -3,3 +3,8 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
+
+import LocalTime from "local-time"
+LocalTime.start()
+import "trix"
+import "@rails/actiontext"

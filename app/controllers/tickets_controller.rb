@@ -7,8 +7,8 @@ class TicketsController < ApplicationController
 
   def show
     @ticket = Ticket.find(params[:id])
-    # if @ticket.responses?
-    # end
+    @response = Response.new
+
     @response = Response.where(ticket_id: @ticket).pluck(:id)
   end
 
