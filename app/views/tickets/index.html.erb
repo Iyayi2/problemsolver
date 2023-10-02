@@ -11,14 +11,14 @@
         <% if ticket.user == current_user %>
           <li>Your ticket has been assigned to <%= ticket.reviewer.first_name %></li>
           <li>Category: <%= ticket.category %></li>
-          <li>Ticket opened: <%= ticket.created_at.strftime("%m/%d/%Y %I:%M %p") %></li>
+          <li>Ticket opened <%= time_ago_in_words(ticket.created_at) %> ago</li>
           <div class="details-white d-flex justify-content-center mt-1">
             <%= link_to "Details", ticket_path(ticket), class: "text-decoration-none btn btn-dark" %>
           </div>
         <% else%>
           <li>Ticket was created by <%= ticket.user.first_name %></li>
           <li>Category: <%= ticket.category %></li>
-          <li>Ticket opened: <%= ticket.created_at.strftime("%m/%d/%Y %I:%M %p") %></li>
+          <li>Ticket opened <%= time_ago_in_words(ticket.created_at) %> ago</li>
           <div class="details-white d-flex justify-content-center mt-1">
             <%= link_to "Details", ticket_path(ticket), class: "text-decoration-none btn btn-dark" %>
           </div>

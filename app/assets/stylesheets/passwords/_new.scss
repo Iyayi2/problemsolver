@@ -1,4 +1,4 @@
-.ticket-new {
+.password-new {
   justify-content: center;
   border: 2px groove;
   border-radius: 10px;
@@ -8,21 +8,21 @@
   font-weight: bold;
 }
 
-.new-header {
+.password-new-header {
   color: white;
   font-weight: bold;
 }
 
-.new-category {
+.password-email {
   color: white;
   font-weight: bold;
 }
 
-.new-description {
-  color: white;
-  font-weight: bold;
-}
 
-// .input-white {
-//   background-color: white;
-// }
+.password-new-img {
+  width: 120px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
