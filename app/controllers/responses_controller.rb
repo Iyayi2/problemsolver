@@ -20,7 +20,6 @@ class ResponsesController < ApplicationController
     @response.ticket = @ticket
     @response.user = @ticket.user
     @response.reviewer = @ticket.reviewer
-    # raise
     if @response.save!
       redirect_to ticket_path(@ticket)
     else
