@@ -27,7 +27,7 @@
     <% end %>
   </ul>
 
-  <% if policy(Ticket).new? %>
+  <% if current_user.id != @ticket.reviewer %>
   <div class="ticket-btn d-flex justify-content-center">
    <%= link_to "Create ticket", new_ticket_path, class: "btn btn-secondary" %>
   </div>
