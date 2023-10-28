@@ -27,7 +27,7 @@
     <% end %>
   </ul>
 
-  <% unless current_user.reviewers.where(user_id: [5, 3]).exists? %>
+  <% unless current_user.reviewers.where(user_id: [25, 23]).exists? %>
     <div class="ticket-btn d-flex justify-content-center">
       <%= link_to "Create ticket", new_ticket_path, class: "btn btn-secondary" %>
     </div>
